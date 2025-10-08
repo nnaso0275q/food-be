@@ -22,7 +22,7 @@ export async function POST(req: Request){
   categories.push(newCategory);
 
   const response = NextResponse.json({ data: categories }, { status: 200 });
-  response.headers.set("Access-Control-Allow-Origin", "*"); 
+  response.headers.set("Access-Control-Allow-Origin", "*");     
   response.headers.set(
     "Access-Control-Allow-Methods",
     "GET, POST, PUT, DELETE, OPTIONS"
