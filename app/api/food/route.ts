@@ -26,12 +26,12 @@ export async function POST(request: NextRequest) {
     console.log("Category:", category);
     console.log(
       "Image:",
-      image ? `$(image.name) (${image.size} bytes)` : "No image"
+      image ? `${image.name} (${image.size} bytes)` : "No image"
     );
     console.log("----------------------------");
 
     // Validate required fields
-    if (!name || !ingredients || !price || !category) {
+    if (!name || !ingredients || !price ) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
