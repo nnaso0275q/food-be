@@ -2,6 +2,55 @@ import { FoodType } from "@/lib/utils/types";
 import { uploadImageToCloudinary } from "@/lib/utils/uploadimage";
 import { NextRequest, NextResponse } from "next/server";
 
+// import {
+//   getAllFoods,
+//   getFoodCount,
+//   createFood,
+// } from "@/lib/services/foodService";
+
+// export async function GET(request: NextRequest) {
+//   try {
+//     const { searchParams } = new URL(request.url);
+//     const category = searchParams.get("category");
+//     const search = searchParams.get("search");
+//     const isAvailable = searchParams.get("isAvailable");
+//     const minPrice = searchParams.get("minPrice");
+//     const maxPrice = searchParams.get("maxPrice");
+//     const limit = searchParams.get("limit");
+//     const skip = searchParams.get("skip");
+
+//     const filters = {
+//       ...(category && { category }),
+//       ...(search && { search }),
+//       ...(isAvailable !== null && { isAvailable: isAvailable === "true" }),
+//       ...(minPrice && { minPrice: parseFloat(minPrice) }),
+//       ...(maxPrice && { maxPrice: parseFloat(maxPrice) }),
+//       ...(limit && { limit: parseInt(limit) }),
+//       ...(skip && { skip: parseInt(skip) }),
+//     };
+
+//     const foods = await getAllFoods(filters);
+//     const totalCount = await getFoodCount(filters);
+
+//     return NextResponse.json({
+//       success: true,
+//       data: foods,
+//       total: totalCount,
+//       filters,
+//     });
+//   } catch (error) {
+//     console.error("Error fetching foods:", error);
+//     return NextResponse.json(
+//       {
+//         success: false,
+//         error: "Failed to fetch foods",
+//         details: error instanceof Error ? error.message : "Unknown error",
+//       },
+//       { status: 500 }
+//     );
+//   }
+// }
+
 export async function GET() {
   return Response.json({ data: "Hello from GET food" });
 }
