@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     console.log("----------------------------");
 
     // Validate required fields
-    if (!name || !ingredients || !price ) {
+    if (!name || !ingredients || !price) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
