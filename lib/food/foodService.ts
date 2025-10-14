@@ -1,5 +1,5 @@
 import connectDB from "../utils/mongodb";
-import { FoodType } from "../utils/types";
+import { FoodType } from "../types/types";
 import { Food } from "../models/Food";
 
 export const createFood = async (foodData: FoodType) => {
