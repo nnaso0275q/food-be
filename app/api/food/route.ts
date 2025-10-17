@@ -9,14 +9,12 @@ export const GET = async () => {
 };
 
 export async function POST(request: NextRequest) {
-  // Parse the formData from the request
   const formData = await request.formData();
 
-  // Extract food fields from formdata
   const name = formData.get("name") as string;
   const ingredients = formData.get("ingredients") as string;
   const price = formData.get("price") as string;
-  const categoryId = formData.get("categoryId") as string;
+  const categoryId = formData.get("categorid") as string;
   const image = formData.get("image") as File;
 
   // Console log the received data
@@ -24,7 +22,7 @@ export async function POST(request: NextRequest) {
   console.log("Name:", name);
   console.log("Ingredients:", ingredients);
   console.log("Price", price);
-  console.log("Category:", categoryId);
+  console.log("CategoryId:", categoryId);
   console.log(
     "Image:",
     image ? `${image.name} (${image.size} bytes)` : "No image"
@@ -50,22 +48,3 @@ export async function POST(request: NextRequest) {
     { status: 200 }
   );
 }
-
-//   // Validate required fields
-//   if (!name || !ingredients || !price) {
-//     return NextResponse.json(
-//       { error: "Missing required fields" },
-//       { status: 400 }
-//     );
-//   }
-
-//   // Return success response
-//   return NextResponse.json(
-//     {
-//       success: true,
-//       message: "Food item received and image uploaded successfully",
-//       data: foodData,
-//     },
-//     { status: 201 }
-//   );
-// }
