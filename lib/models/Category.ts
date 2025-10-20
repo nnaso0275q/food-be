@@ -1,8 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-
-type CategorySchematype = {
-  name: string;
-};
+import { CategorySchematype } from "../types/types";
 
 const CategorySchema = new Schema({
   name: String,

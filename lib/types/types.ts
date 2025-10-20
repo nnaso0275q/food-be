@@ -5,3 +5,15 @@ export type FoodType = {
   price: number;
   categoryId: string;
 };
+
+export type FoodSchematype = {
+  name: string;
+  price: string;
+  ingredients: string;
+  category: string;
+  image: string;
+};
+
+export type CategorySchematype = {
+  name: string;
+};
