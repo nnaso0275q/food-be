@@ -1,7 +1,6 @@
 import {
   createCategory,
   getAllCategories,
-  updateFoodCatergories,
 } from "@/lib/services/categoryService";
 import { NextRequest, NextResponse } from "next/server";
 
