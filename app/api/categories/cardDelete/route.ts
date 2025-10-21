@@ -1,36 +1,32 @@
 import { NextRequest, NextResponse } from "next/server";
 import mongodb from "@/lib/utils/mongodb";
-import { Category } from "@/lib/models/Category";
+import { Food } from "@/lib/models/Food";
 
-export async function PUT(req: NextRequest) {
+export async function POST(req: NextRequest) {
   try {
     await mongodb();
 
     const body = await req.json();
-    const { id, name, category, ingredients, price, image } = body;
+    const { id } = body;
 
     if (!id) {
       return NextResponse.json(
-        { message: "Missing category ID" },
+        { message: "Missing menu card ID" },
         { status: 400 }
       );
     }
 
-    const updateCategory = await Category.findByIdAndUpdate(
-      id,
-      { name, category, ingredients, price, image },
-      { new: true }
-    );
+    const menuCardDelete = await Food.findByIdAndDelete(id);
 
-    if (!updateCategory) {
+    if (!menuCardDelete) {
       return NextResponse.json(
-        { message: "Category not found" },
+        { message: "Menu card not found" },
         { status: 404 }
       );
     }
 
     const response = NextResponse.json(
-      { message: "Category updated successfully" },
+      { message: "Menu card deleted successfully" },
       { status: 200 }
     );
 
@@ -47,7 +43,7 @@ export async function PUT(req: NextRequest) {
 
     return response;
   } catch (error) {
-    console.error("Error updating category:", error);
+    console.error("Error deleting menu card:", error);
     return NextResponse.json(
       { message: "Internal Server Error" },
       { status: 500 }
