@@ -17,3 +17,8 @@ export type FoodSchematype = {
 export type CategorySchematype = {
   name: string;
 };
+
+export type UserSchemaType = {
+  email: string;
+  password: string;
+};
